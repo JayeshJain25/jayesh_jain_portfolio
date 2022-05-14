@@ -160,139 +160,159 @@ class BottomBarContents extends StatelessWidget {
                 )
               ],
             )
-          : Row(
-              mainAxisAlignment: MainAxisAlignment.center,
+          : Stack(
               children: [
-                SizedBox(
-                  width: screenSize.width * 0.37,
-                ),
-                Text(
-                  "@ 2022 - Jayesh Jain. All rights reserved.",
-                  style: GoogleFonts.rubik(
-                    color: const Color(0xFFFFFFFF),
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w500,
-                  ),
-                ),
-                SizedBox(
-                  width: ResponsiveWidget.isMediumScreen(context)
-                      ? screenSize.width * 0.08
-                      : screenSize.width * 0.15,
-                ),
-                Container(
-                  width: screenSize.width * 0.02,
-                  height: (screenSize.width >= 800 && screenSize.width <= 915)
-                      ? screenSize.height * 0.02
-                      : screenSize.height * 0.037,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: const Color(0xFF2e2f34),
-                  ),
-                  child: Center(
-                    child: InkWell(
-                      onTap: () {
-                        _launchUrl(_instagram);
-                      },
-                      child: const FaIcon(
-                        FontAwesomeIcons.instagram,
-                        size: 18,
-                        color: Color(0xFFdb913b),
-                      ),
+                Center(
+                  child: Text(
+                    "@ 2022 - Jayesh Jain. All rights reserved.",
+                    style: GoogleFonts.rubik(
+                      color: const Color(0xFFFFFFFF),
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w500,
                     ),
                   ),
                 ),
-                Container(
-                  margin: EdgeInsets.only(left: screenSize.width * 0.01),
-                  width: screenSize.width * 0.02,
-                  height: (screenSize.width >= 800 && screenSize.width <= 915)
-                      ? screenSize.height * 0.02
-                      : screenSize.height * 0.037,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: const Color(0xFF2e2f34),
-                  ),
-                  child: Center(
-                    child: InkWell(
-                      onTap: () {
-                        _launchUrl(_twitter);
-                      },
-                      child: const FaIcon(
-                        FontAwesomeIcons.twitter,
-                        size: 18,
-                        color: Color(0xFFdb913b),
-                      ),
+                // SizedBox(
+                //   width: ResponsiveWidget.isMediumScreen(context)
+                //       ? screenSize.width * 0.08
+                //       : screenSize.width * 0.23,
+                // ),
+                Positioned(
+                  top: (screenSize.width >= 800 && screenSize.width <= 915)
+                      ? screenSize.height * 0.08
+                      : screenSize.height * 0.06,
+                  left: screenSize.width * 0.8,
+                  child: Container(
+                    alignment: Alignment.center,
+                    child: Row(
+                      children: [
+                        Container(
+                          width: screenSize.width * 0.02,
+                          height: (screenSize.width >= 800 &&
+                                  screenSize.width <= 915)
+                              ? screenSize.height * 0.02
+                              : screenSize.height * 0.037,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: const Color(0xFF2e2f34),
+                          ),
+                          child: Center(
+                            child: InkWell(
+                              onTap: () {
+                                _launchUrl(_instagram);
+                              },
+                              child: const FaIcon(
+                                FontAwesomeIcons.instagram,
+                                size: 18,
+                                color: Color(0xFFdb913b),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin:
+                              EdgeInsets.only(left: screenSize.width * 0.01),
+                          width: screenSize.width * 0.02,
+                          height: (screenSize.width >= 800 &&
+                                  screenSize.width <= 915)
+                              ? screenSize.height * 0.02
+                              : screenSize.height * 0.037,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: const Color(0xFF2e2f34),
+                          ),
+                          child: Center(
+                            child: InkWell(
+                              onTap: () {
+                                _launchUrl(_twitter);
+                              },
+                              child: const FaIcon(
+                                FontAwesomeIcons.twitter,
+                                size: 18,
+                                color: Color(0xFFdb913b),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin:
+                              EdgeInsets.only(left: screenSize.width * 0.01),
+                          width: screenSize.width * 0.02,
+                          height: (screenSize.width >= 800 &&
+                                  screenSize.width <= 915)
+                              ? screenSize.height * 0.02
+                              : screenSize.height * 0.037,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: const Color(0xFF2e2f34),
+                          ),
+                          child: Center(
+                            child: InkWell(
+                              onTap: () {
+                                _launchUrl(_linkedin);
+                              },
+                              child: const FaIcon(
+                                FontAwesomeIcons.linkedinIn,
+                                size: 18,
+                                color: Color(0xFFdb913b),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin:
+                              EdgeInsets.only(left: screenSize.width * 0.01),
+                          width: screenSize.width * 0.02,
+                          height: (screenSize.width >= 800 &&
+                                  screenSize.width <= 915)
+                              ? screenSize.height * 0.02
+                              : screenSize.height * 0.037,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: const Color(0xFF2e2f34),
+                          ),
+                          child: Center(
+                            child: InkWell(
+                              onTap: () {
+                                _launchUrl(_github);
+                              },
+                              child: const FaIcon(
+                                FontAwesomeIcons.github,
+                                size: 18,
+                                color: Color(0xFFdb913b),
+                              ),
+                            ),
+                          ),
+                        ),
+                        Container(
+                          margin:
+                              EdgeInsets.only(left: screenSize.width * 0.01),
+                          width: screenSize.width * 0.02,
+                          height: (screenSize.width >= 800 &&
+                                  screenSize.width <= 915)
+                              ? screenSize.height * 0.02
+                              : screenSize.height * 0.037,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5),
+                            color: const Color(0xFF2e2f34),
+                          ),
+                          child: Center(
+                            child: InkWell(
+                              onTap: () {
+                                _launchUrl(_whatsapp);
+                              },
+                              child: const FaIcon(
+                                FontAwesomeIcons.whatsapp,
+                                size: 18,
+                                color: Color(0xFFdb913b),
+                              ),
+                            ),
+                          ),
+                        )
+                      ],
                     ),
                   ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: screenSize.width * 0.01),
-                  width: screenSize.width * 0.02,
-                  height: (screenSize.width >= 800 && screenSize.width <= 915)
-                      ? screenSize.height * 0.02
-                      : screenSize.height * 0.037,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: const Color(0xFF2e2f34),
-                  ),
-                  child: Center(
-                    child: InkWell(
-                      onTap: () {
-                        _launchUrl(_linkedin);
-                      },
-                      child: const FaIcon(
-                        FontAwesomeIcons.linkedinIn,
-                        size: 18,
-                        color: Color(0xFFdb913b),
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: screenSize.width * 0.01),
-                  width: screenSize.width * 0.02,
-                  height: (screenSize.width >= 800 && screenSize.width <= 915)
-                      ? screenSize.height * 0.02
-                      : screenSize.height * 0.037,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: const Color(0xFF2e2f34),
-                  ),
-                  child: Center(
-                    child: InkWell(
-                      onTap: () {
-                        _launchUrl(_github);
-                      },
-                      child: const FaIcon(
-                        FontAwesomeIcons.github,
-                        size: 18,
-                        color: Color(0xFFdb913b),
-                      ),
-                    ),
-                  ),
-                ),
-                Container(
-                  margin: EdgeInsets.only(left: screenSize.width * 0.01),
-                  width: screenSize.width * 0.02,
-                  height: (screenSize.width >= 800 && screenSize.width <= 915)
-                      ? screenSize.height * 0.02
-                      : screenSize.height * 0.037,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(5),
-                    color: const Color(0xFF2e2f34),
-                  ),
-                  child: Center(
-                    child: InkWell(
-                      onTap: () {
-                        _launchUrl(_whatsapp);
-                      },
-                      child: const FaIcon(
-                        FontAwesomeIcons.whatsapp,
-                        size: 18,
-                        color: Color(0xFFdb913b),
-                      ),
-                    ),
-                  ),
-                ),
+                )
               ],
             ),
     );

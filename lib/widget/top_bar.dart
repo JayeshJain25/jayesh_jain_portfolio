@@ -18,7 +18,6 @@ class _TopBarContentsState extends State<TopBarContents> {
     false,
     false,
     false,
-    false,
   ];
 
   @override
@@ -43,30 +42,36 @@ class _TopBarContentsState extends State<TopBarContents> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            MouseRegion(
-              cursor: SystemMouseCursors.click,
-              child: GestureDetector(
-                onTap: () {},
-                child: RichText(
-                  text: TextSpan(
-                    children: [
-                      TextSpan(
-                        text: "J",
-                        style: GoogleFonts.oswald(
-                          color: Colors.white,
-                          fontSize: 32.0,
-                          fontWeight: FontWeight.bold,
+            ResponsiveVisibility(
+              visible: false,
+              visibleWhen: const [
+                Condition.largerThan(name: MOBILE),
+              ],
+              child: MouseRegion(
+                cursor: SystemMouseCursors.click,
+                child: GestureDetector(
+                  onTap: () {},
+                  child: RichText(
+                    text: TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "J",
+                          style: GoogleFonts.oswald(
+                            color: Colors.white,
+                            fontSize: 32.0,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ),
-                      TextSpan(
-                        text: ".",
-                        style: GoogleFonts.oswald(
-                          color: const Color(0xFF437FC7),
-                          fontSize: 36.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      )
-                    ],
+                        TextSpan(
+                          text: ".",
+                          style: GoogleFonts.oswald(
+                            color: const Color(0xFF437FC7),
+                            fontSize: 36.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
+                    ),
                   ),
                 ),
               ),
@@ -197,7 +202,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'PROJECTS',
+                            'PORTFOLIO',
                             style: GoogleFonts.rubik(
                               color: (_isHovering[0] ||
                                       _isHovering[1] ||

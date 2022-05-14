@@ -5,17 +5,22 @@ import 'package:flutter_arc_text/flutter_arc_text.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jayesh_jain_portfolio/widget/responsive.dart';
 import 'package:responsive_framework/responsive_framework.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeWidget extends StatelessWidget {
   const HomeWidget({
     Key? key,
     required this.screenSize,
+    required this.keys,
   }) : super(key: key);
 
   final Size screenSize;
+  final List<GlobalKey> keys;
 
   @override
   Widget build(BuildContext context) {
+    final Uri _whatsapp = Uri.parse(
+        'https://api.whatsapp.com/send/?phone=919819906537&text&app_absent=0');
     return Container(
       height: screenSize.height,
       width: screenSize.width,
@@ -78,7 +83,9 @@ class HomeWidget extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: () {
+                      _launchUrl(_whatsapp);
+                    },
                     child: MouseRegion(
                       cursor: SystemMouseCursors.click,
                       child: Text(
@@ -108,7 +115,13 @@ class HomeWidget extends StatelessWidget {
                     horizontal: 28.0,
                   ),
                   child: TextButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Scrollable.ensureVisible(
+                        keys[1].currentContext!,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                      );
+                    },
                     child: Text(
                       "GET STARTED",
                       style: GoogleFonts.rubik(
@@ -200,4 +213,8 @@ class OpenPainter extends CustomPainter {
 
   @override
   bool shouldRepaint(CustomPainter oldDelegate) => true;
+}
+
+void _launchUrl(Uri url) async {
+  if (!await launch(url.toString())) throw 'Could not launch $url';
 }
